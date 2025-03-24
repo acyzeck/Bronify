@@ -1,4 +1,4 @@
-<h1> Bronify </h1>
+# Bronify
 ## Tech Stack
 - Typescript
 - TailwindCSS
