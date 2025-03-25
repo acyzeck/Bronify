@@ -19,3 +19,14 @@ export const fetchSongById = async (id: string) => {
         throw new Error(error.message || 'Failed to fetch song');
     }
 };
+
+export const fetchAlbumById = async (id: string) => {
+    try {
+        const response = await axios.get(
+            `http://localhost:5000/api/albums/${id}`
+        ); // Replace with your API endpoint
+        return response.data; // Return the data (album)
+    } catch (error: any) {
+        throw new Error(error.message || 'Failed to fetch album');
+    }
+};
