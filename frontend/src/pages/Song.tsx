@@ -60,7 +60,7 @@ const Song = () => {
             <div className="container mx-auto max-w-4xl">
                 <div className="flex flex-col md:flex-row items-center md:items-end space-y-6 md:space-y-0 md:space-x-8 mb-12">
                     <img
-                        src={song.cover}
+                        src={song.imageUrl}
                         alt={song.title}
                         className="w-64 h-64 object-cover shadow-2xl rounded-md transition-transform duration-300 hover:scale-105"
                     />

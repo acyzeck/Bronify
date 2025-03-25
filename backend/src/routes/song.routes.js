@@ -12,4 +12,3 @@ router.get('/:id', getSongById);
 router.post('/create', createSong);
 
 export default router;
-3;

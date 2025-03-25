@@ -1,32 +1,32 @@
 import Song from '../models/song.model.js';
 
-export const createSong = async (req, res) => {
-    const {
-        title,
-        artist,
-        duration,
-        audioUrl,
-        cover,
-        album,
-        lyrics,
-        description,
-    } = req.body;
-    try {
-        const song = new Song({
-            title,
-            artist,
-            duration,
-            audioUrl,
-            cover,
-            album,
-            lyrics,
-            description,
-        });
-        await song.save();
-        res.status(201).json(song);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+export const createSong = async (req, res, next) => {
+	try {
+
+		const { title, artist, albumId, duration, audioUrl, imageUrl } = req.body;
+
+		const song = new Song({
+			title,
+			artist,
+			audioUrl,
+			imageUrl,
+			duration,
+			albumId: albumId || null,
+		});
+
+		await song.save();
+
+		// if song belongs to an album, update the album's songs array
+		if (albumId) {
+			await Album.findByIdAndUpdate(albumId, {
+				$push: { songs: song._id },
+			});
+		}
+		res.status(201).json(song);
+	} catch (error) {
+		console.log("Error in createSong", error);
+		next(error);
+	}
 };
 
 export const getAllSongs = async (req, res) => {

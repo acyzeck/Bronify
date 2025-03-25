@@ -65,7 +65,7 @@ const Library = () => {
                         onClick={() => handleSongClick(song._id)} // Pass the function reference here
                     >
                         <img
-                            src={song.cover}
+                            src={song.imageUrl}
                             alt={song.title}
                             className="w-full h-48 object-cover"
                         />
