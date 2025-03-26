@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchAlbumById } from '../lib/axios';

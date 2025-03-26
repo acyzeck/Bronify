@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="relative w-full flex-1 flex justify-center group">
           {/* Search icon inside the input */}
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 transition-colors group-hover:text-white cursor-pointer" />
-          
+
           {/* Input field */}
           <input
             type="text"
@@ -39,8 +39,6 @@ const Navbar = () => {
           />
         </div>
       </div>
-      
-      <div></div>
     </nav>
   );
 };

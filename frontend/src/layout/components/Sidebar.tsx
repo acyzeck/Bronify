@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Library, Disc } from 'lucide-react';
+import { Library } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchAlbums } from '../../lib/axios';
 

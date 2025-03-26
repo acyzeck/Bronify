@@ -9,6 +9,6 @@ const router = Router();
 
 router.get('/', getAllSongs);
 router.get('/:id', getSongById);
-router.post('/create', createSong);
+router.post('/create',createSong);
 
 export default router;

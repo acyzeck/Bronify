@@ -8,7 +8,7 @@ const MainLayout = () => {
     return (
         <div className="h-screen w-screen bg-black flex flex-col p-2 overflow-hidden">
             {/* Navbar - Fixed at the top, rounded corners */}
-            <div className="w-full bg-zinc-900 rounded-md shadow-lg p-4">
+            <div className="w-full bg-zinc-900 rounded-md shadow-lg">
                 <Navbar />
             </div>
 
