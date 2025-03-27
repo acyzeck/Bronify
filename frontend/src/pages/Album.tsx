@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchAlbumById } from '../lib/axios';
 
 const Album = () => {
@@ -84,25 +84,40 @@ const Album = () => {
                     {album.songs.length > 0 ? (
                         <ul className="space-y-4">
                             {album.songs.map((song: any) => (
-                                <li key={song._id} className="flex items-center space-x-4 p-4 bg-zinc-900 rounded-lg shadow-md">
-                                    <img
-                                        src={song.imageUrl}
-                                        alt={song.title}
-                                        className="w-16 h-16 object-cover rounded-md"
-                                    />
+                                <li
+                                    key={song._id}
+                                    className="flex items-center space-x-4 p-4 bg-zinc-900 rounded-lg shadow-md"
+                                >
+                                    <Link to={`/song/${song._id}`}>
+                                        <img
+                                            src={song.imageUrl}
+                                            alt={song.title}
+                                            className="w-16 h-16 object-cover rounded-md hover:scale-105 transition-transform duration-300"
+                                        />
+                                    </Link>
                                     <div>
-                                        <p className="text-xl font-semibold">{song.title}</p>
-                                        <p className="text-gray-400">{song.artist}</p>
+                                        <p className="text-xl font-semibold">
+                                            {song.title}
+                                        </p>
+                                        <p className="text-gray-400">
+                                            {song.artist}
+                                        </p>
                                     </div>
                                     <audio controls className="ml-auto">
-                                        <source src={song.audioUrl} type="audio/mp3" />
-                                        Your browser does not support the audio element.
+                                        <source
+                                            src={song.audioUrl}
+                                            type="audio/mp3"
+                                        />
+                                        Your browser does not support the audio
+                                        element.
                                     </audio>
                                 </li>
                             ))}
                         </ul>
                     ) : (
-                        <p className="text-gray-400">No songs found in this album.</p>
+                        <p className="text-gray-400">
+                            No songs found in this album.
+                        </p>
                     )}
                 </div>
             </div>
